@@ -9,12 +9,12 @@ class BasicEnv(gym.Env):
         # There are two actions, first will get reward of 1, second reward of -1. 
         self.action_space = spaces.Discrete(5)
         self.observation_space = spaces.Discrete(2)
-        self.state = spaces.Discrete(2)
+        self.state = None
 
     def step(self, action):
 
         # if we took an action, we were in state 1
-        state = 1
+        self.state = 1
     
         if action == 2:
             reward = 1
@@ -26,11 +26,11 @@ class BasicEnv(gym.Env):
 
         info = {}
 
-        return state, reward, done, info
+        return self.state, reward, done, info
 
     def reset(self):
-        state = 0
-        return state
+        self.state = 0
+        return self.state
   
     def render(self, mode='human'):
         pass
