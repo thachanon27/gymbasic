@@ -9,7 +9,6 @@ class BasicEnv(gym.Env):
         # There are two actions, first will get reward of 1, second reward of -1. 
         self.action_space = spaces.Discrete(5)
         self.observation_space = spaces.Discrete(2)
-        self.env.state = spaces.Discrete(2)
         self.state = spaces.Discrete(2)
 
     def step(self, action):
