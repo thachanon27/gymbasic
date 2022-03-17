@@ -1,10 +1,8 @@
-from typing import Optional, Union
-import numpy as np
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
 
-class BasicEnv(gym.Env[np.ndarray, Union[int, np.ndarray]]):
+class BasicEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
     def __init__(self):
