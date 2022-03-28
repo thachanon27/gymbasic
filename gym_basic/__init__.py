@@ -14,3 +14,8 @@ register(
     id='dog-v0',
     entry_point='gym_basic.envs:DogEnv',
 )
+
+register(
+    id='robot-v0',
+    entry_point='gym_basic.envs:RobotInRoom',
+)
