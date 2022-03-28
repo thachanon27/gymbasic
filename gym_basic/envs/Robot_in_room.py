@@ -34,8 +34,6 @@ class RobotInRoom(Env):
         self.action_space = spaces.Discrete(4)
         self.collected_reward = 0
 
-
-
     def step(self, action):
         info = {}
         """
@@ -46,6 +44,7 @@ class RobotInRoom(Env):
                 2 |
                 return next position
         """
+        nxtState2 = self.state
 
         if action == 0:
             nxtState = [self.state[0] - 1, self.state[1]]
@@ -59,13 +58,14 @@ class RobotInRoom(Env):
         if (nxtState[0] >= 0) and (nxtState[0] <= (self.BOARD_ROWS - 1)):
             if (nxtState[1] >= 0) and (nxtState[1] <= (self.BOARD_COLS - 1)):
                 if nxtState != [1, 1]:
-                    return nxtState
-
+                    nxtState2 = nxtState
+                    #return nxtState
+        #nxtState = nxtPosition(self, action)
         #giveReward
-        if nxtState == self.win_state:
+        if nxtState2 == self.win_state:
             rw = 1
             self.collected_reward += 1
-        elif nxtState == self.lose_state:
+        elif nxtState2 == self.lose_state:
             rw = -1
             self.collected_reward += -1
         else:
@@ -74,12 +74,12 @@ class RobotInRoom(Env):
 
         print("state =", self.state)
         print("action =", action)
-        print("next state =", nxtState)
+        print("next state =", nxtState2)
         print("rw =", rw)
         print("sum collected reward =", self.collected_reward)
         print('-----------------')
 
-        self.state = nxtState
+        self.state = nxtState2
         done = bool((self.state == self.win_state )or(self.state == self.lose_state))
 
         return self.state,self.collected_reward, done, info
@@ -106,4 +106,3 @@ class RobotInRoom(Env):
         self.state = [2,0]   # state state
         self.collected_reward = 0
         return self.state, self.collected_reward
-
