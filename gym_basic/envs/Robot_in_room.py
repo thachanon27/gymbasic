@@ -72,7 +72,7 @@ class RobotInRoom(Env):
             move_y = 1
 
         nxtState_x, nxtState_y = self.state
-        print("round =", self.rounds)
+        #print("round =", self.rounds)
         #print("state =", self.state)
         nxtState_x += move_x
         nxtState_y += move_y
@@ -109,12 +109,12 @@ class RobotInRoom(Env):
         #print("action =", action)
         #print("next state x2 =", nxtState2_x,",next state y2 =", nxtState2_y  )
         #print("rw =", rw)
-        print("sum collected reward =", self.collected_reward)
+        #print("sum collected reward =", self.collected_reward)
         if rw == 1: 
-            print("#######################found win state!!!!!!!!!!!!!!!!!!!!") 
+            #print("#######################found win state!!!!!!!!!!!!!!!!!!!!") 
         if rw == -1: 
-            print("#######################fail at lose state!!!!!!!!!!!!!!!!!!!") 
-        print('-----------------')
+            #print("#######################fail at lose state!!!!!!!!!!!!!!!!!!!") 
+        #print('-----------------')
 
         self.state = (nxtState2_x, nxtState2_y)
         done = bool((nxtState2_x == self.win_state_x and nxtState2_y == self.win_state_y  )
