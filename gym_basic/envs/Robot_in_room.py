@@ -111,9 +111,9 @@ class RobotInRoom(Env):
         #print("rw =", rw)
         print("sum collected reward =", self.collected_reward)
         if rw == 1: 
-            print("found win state") 
+            print("#######################found win state!!!!!!!!!!!!!!!!!!!!") 
         if rw == -1: 
-            print("fail at lose state") 
+            print("#######################fail at lose state!!!!!!!!!!!!!!!!!!!") 
         print('-----------------')
 
         self.state = (nxtState2_x, nxtState2_y)
